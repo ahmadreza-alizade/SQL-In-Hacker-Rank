@@ -1,0 +1,14 @@
+select city, length(city) as len from station
+where length(city) = (select min(length(city)) as shortest from station)
+order by len ASC, city ASC
+limit 1;
+
+--union
+
+select city, length(city) as len from station
+where length(city) = (select max(length(city)) as longest from station)
+order by len ASC, city ASC
+limit 1;
+
+
+-- SELECT CITY,LENGTH(CITY) AS LEN FROM STATION ORDER BY LEN ASC, CITY ASC LIMIT 1; SELECT CITY,LENGTH(CITY) AS LEN FROM STATION ORDER BY LEN DESC, CITY ASC LIMIT 1;
