@@ -1,0 +1,8 @@
+select 
+case 
+    when a+b <= c OR a+c <= b OR b+c <= a THEN "Not A Triangle"
+    when a = b AND b = c THEN "Equilateral"
+    when a = b OR b = c OR a = c THEN "Isosceles"
+    else "Scalene"
+end as triangle_type
+FROM TRIANGLES
