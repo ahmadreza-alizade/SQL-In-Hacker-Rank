@@ -1,4 +1,5 @@
 SELECT 
+--cause the selection is only one item we can use both min() and max() in this query.
     MAX(CASE WHEN Occupation = 'Doctor' THEN Name ELSE NULL END) AS Doctor, 
     MAX(CASE WHEN Occupation = 'Professor' THEN Name ELSE NULL END) AS Professor, 
     MAX(CASE WHEN Occupation = 'Singer' THEN Name ELSE NULL END) AS Singer, 
