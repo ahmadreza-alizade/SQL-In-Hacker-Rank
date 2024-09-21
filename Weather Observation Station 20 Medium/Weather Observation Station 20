@@ -1,0 +1,4 @@
+select Round(lat_n, 4)
+from station
+limit 1
+offset 249
