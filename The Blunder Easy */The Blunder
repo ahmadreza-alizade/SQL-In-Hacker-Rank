@@ -1,3 +1,0 @@
-# The Blunder
-select ceil(avg(salary) - avg(cast(replace(convert(salary, char), "0", "") AS UNSIGNED)))
-from employees
