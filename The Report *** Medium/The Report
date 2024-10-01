@@ -1,0 +1,42 @@
+-- with join
+select
+    case
+        when grade >= 8 then name
+        else NULL
+    end as names, grade, marks 
+from students s
+join grades g on s.marks >= g.min_mark and s.marks <= g.max_mark
+order by g.grade desc, 
+    case when g.grade >= 8 then s.name else NULL end ASC,
+    case when g.grade <= 8 then s.marks else NULL end ASC;
+
+-- another way without join
+select 
+    case 
+        when students.marks between 90 and 100 then name
+        when students.marks between 80 and 89 then name
+        when students.marks between 70 and 79 then name
+        else "NULL" 
+        end as name,
+    case 
+        when students.marks between 90 and 100 then 10
+        when students.marks between 80 and 89 then 9
+        when students.marks between 70 and 79 then 8
+        when students.marks between 60 and 69 then 7
+        when students.marks between 50 and 59 then 6
+        when students.marks between 40 and 49 then 5
+        when students.marks between 30 and 39 then 4
+        when students.marks between 20 and 29 then 3
+        when students.marks between 10 and 19 then 2
+        when students.marks between 0 and 9 then 1
+        end as grade,
+        students.marks
+from students 
+order by grade DESC, name ASC, students.marks ASC
+
+
+
+
+
+
+
